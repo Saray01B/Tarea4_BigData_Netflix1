@@ -161,6 +161,30 @@ db.Catalogo.updateOne(
 
 ### _MongoDB_ 
 
-Se realizaron loa actualización de 3 documentos, modificando el pais, la clasificación y la duración por diferentes filtros. Estas consultas permiten mantener la información del catalogo actualizada.
+Se realizó la actualización de 3 documentos, modificando el pais, la clasificación y la duración por diferentes filtros. Estas consultas permiten mantener la información del catalogo actualizada.
 
-<p align="center"><img wwidth="818" height="420" alt="image" src="https://github.com/user-attachments/assets/c5b9689f-986a-457a-887e-5c0f4c9f955e" /></p>
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/c5b9689f-986a-457a-887e-5c0f4c9f955e" /></p>
+
+## Eliminación
+
+### _Código_ 
+
+deleteOne() permite eliminar un documentos individual en la colección. Se usa cuando se quiere borrar solo un nuevo registro al catalogo, si hay varios solo se elimina el primer documento. Se elimina el documento con IDE "S10001"
+
+```python
+db.Catalogo.deleteOne({
+  ID: "s10001",
+})
+```
+deleteMany() permite eliminar múltiples documentos en una sola operación  que cumplen con una condición. Es util cuando se quieren borrar varios registros al mismo tiempo. Se eliminan todas las películas con duración de 100 min.
+
+```python
+db.Catalogo.deleteMany({
+  Duración: "100 min"
+})
+```
+### _MongoDB_ 
+
+Se realizó la eliminación de documentos por ID y por duración. Estas consultan permiten eliminar registros innecesario o duplicados. Se eliminó el registro con ID "s1001" y 109 películas con duración de 100 minutos.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/6eb9f194-dd05-40c4-b364-197d91a54dd8" /></p>
