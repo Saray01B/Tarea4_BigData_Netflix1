@@ -6,7 +6,7 @@
 
 ### _Código_ 
 
-InsertOne() permite insentar un documentos individual en la colección. Se usa cuando se quiere agregar solo un nuevo registro al catalogo.
+- InsertOne()
 
 ```python
 db.Catalogo.insertOne({
@@ -24,7 +24,7 @@ db.Catalogo.insertOne({
   Descripción: "Película de prueba 1"
 })
 ```
-InsertMany() permite insertar múltiples documentos en una sola operación. Es util cuando se quiren agregar varios registros al mismo tiempo.
+- InsertMany()
 
 ```python
 db.Catalogo.insertMany([
@@ -76,7 +76,15 @@ db.Catalogo.insertMany([
 
 Se realizó la inserción de 4 documentos en la colección "Catalogo", utilizando dos métodos distintos de consulta "InsertOne()" para agregar un registro específico y "InserMany()" para agregar varios registros en una operación, optimizando el proceso.
 
+- InsertOne()
+
+InsertOne() permite insentar un documentos individual en la colección. Se usa cuando se quiere agregar solo un nuevo registro al catalogo.
+
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" /></p>
+
+- InserMany()
+
+InsertMany() permite insertar múltiples documentos en una sola operación. Es util cuando se quiren agregar varios registros al mismo tiempo.
 
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" /></p>
 
@@ -88,8 +96,6 @@ El comando find() permite consultar documentos dentro de una colección. Puede u
 
 - Seleccionar un documento por ID
 
-Busca un documento en donde el campo "ID" coincidad exactamente con "s10001". Este tipo de consulta se usa para un registro específico.
-
 ```python
 db.Catalogo.find({
   ID: "s10001"
@@ -97,16 +103,12 @@ db.Catalogo.find({
 ```
 - Seleccionar solo títulos y años
 
-Selecciona todos los documento con {} y muestra el título, año de lanzamiento y excluye el _id.
-
 ```python
 db.Catalogo.find(
   {}, {Título:1, Año_Lanzamiento: 1, _id: 0}
 )
 ```
 - Seleccionar películas
-
-Filtra los documentos donde el campo "Tipo" es igual a "Movie" para obtener las películas.
 
 ```python
 db.Catalogo.find({
@@ -118,7 +120,21 @@ db.Catalogo.find({
 
 Se realizaron tres tipos de consultas con el método find(), selección por ID, con proyección y por tipo de contenido. Estas consultas permiten explorar la colección "Catalogo".
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/5b6667f2-2e0e-4727-87f0-00eb95f64513" /></p>
+- Documento por ID
+
+Busca un documento en donde el campo "ID" coincidad exactamente con "s10001". Este tipo de consulta se usa para un registro específico.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/87c0c8db-9fa5-4f80-8823-fd1bee1def4a" /></p>
+
+- Documentos solo títulos y años
+
+Selecciona todos los documento con {} y muestra el título, año de lanzamiento y excluye el _id.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/9685c1ab-128f-4835-a44f-f6951067966f" /></p>
+
+- Documentos por tipo
+
+Filtra los documentos donde el campo "Tipo" es igual a "Movie" para obtener las películas.
 
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" /></p>
 
@@ -128,9 +144,7 @@ Se realizaron tres tipos de consultas con el método find(), selección por ID, 
 
 El comando updateOne() permite modificar campos específicos de un documento usando el operador $set.
 
-- Actuarlizar país por ID
-
-Modificar el país del ID "S10001" a "Colombia"
+- Actualizar país por ID
 
 ```python
 db.Catalogo.updateOne(
@@ -140,8 +154,6 @@ db.Catalogo.updateOne(
 ```
 - Actualizar clasificación por título
 
-Se modifica la clasificación de las películas con título "Ejemplo 2"
-
 ```python
 db.Catalogo.updateOne(
   {"Título": "Ejemplo 2"},
@@ -150,11 +162,9 @@ db.Catalogo.updateOne(
 ```
 - Actualizar duración por Tipo
 
-Cambiar la duración de las películas de tipo "Movie" y duración "1 temporada"
-
 ```python
 db.Catalogo.updateOne(
-  {"Tipo": "TV Show", "Duración": "1 temporada"},
+  {"Tipo": "Movie", "Duración": "90 min"},
   {$set: {Duración: "100 min"}}
 )
 ```
@@ -163,20 +173,37 @@ db.Catalogo.updateOne(
 
 Se realizó la actualización de 3 documentos, modificando el pais, la clasificación y la duración por diferentes filtros. Estas consultas permiten mantener la información del catalogo actualizada.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/c5b9689f-986a-457a-887e-5c0f4c9f955e" /></p>
+- Actualizar país por ID
+
+Modificar el país del ID "S10001" a "Colombia"
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/8118305b-253f-4afc-89f2-eaa97769ee7f" /></p>
+  
+- Actualizar clasificación por título
+
+Se modifica la clasificación de las películas con título "Ejemplo 2" a "TV-14"
+
+<p align="center"><img width="818" height= "420" alt="image" src="https://github.com/user-attachments/assets/154bd822-1867-419d-8d68-2c134e0352ad" /></p>
+  
+- Actualizar duración por Tipo
+
+Cambiar la duración de las películas de tipo "Movie" y duración de "90 min" a una duración de "100 min"
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/da6c238d-4429-4fe6-a389-e38a1c560fcc" /></p>
+
 
 ## Eliminación
 
 ### _Código_ 
 
-deleteOne() permite eliminar un documentos individual en la colección. Se usa cuando se quiere borrar solo un nuevo registro al catalogo, si hay varios solo se elimina el primer documento. Se elimina el documento con IDE "S10001"
+- deleteOne()
 
 ```python
 db.Catalogo.deleteOne({
   ID: "s10001",
 })
 ```
-deleteMany() permite eliminar múltiples documentos en una sola operación  que cumplen con una condición. Es util cuando se quieren borrar varios registros al mismo tiempo. Se eliminan todas las películas con duración de 100 min.
+- deleteMany()
 
 ```python
 db.Catalogo.deleteMany({
@@ -185,6 +212,117 @@ db.Catalogo.deleteMany({
 ```
 ### _MongoDB_ 
 
-Se realizó la eliminación de documentos por ID y por duración. Estas consultan permiten eliminar registros innecesario o duplicados. Se eliminó el registro con ID "s1001" y 109 películas con duración de 100 minutos.
+Se realizó la eliminación de documentos por ID y por duración. Estas consultan permiten eliminar registros innecesario o duplicados.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/6eb9f194-dd05-40c4-b364-197d91a54dd8" /></p>
+- deleteOne()
+
+Permite eliminar un documentos individual en la colección. Se usa cuando se quiere borrar solo un nuevo registro al catalogo, si hay varios solo se elimina el primer documento. Se elimina el documento con IDE "S10001"
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/50d6cbfe-61a3-4213-af41-00f6fd61890f" /></p>
+
+- deleteMany()
+
+Permite eliminar múltiples documentos en una sola operación  que cumplen con una condición. Es util cuando se quieren borrar varios registros al mismo tiempo. Se eliminan todas las películas con duración de 100 min que fueron un total de 109 películas
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/974a171b-0161-44ac-b252-38c8a7c0f688" /></p>
+
+## 2️⃣ Consultas con filtros y operadores
+
+## Consultas con filtros
+
+### _Código_ 
+
+El comando find() permite consultar documentos dentro de una colección. Puede usarse para buscar documentos completos, aplicar filtros o devolver un campo en específico.
+
+- Películas posteriores a 2015
+
+```python
+db.Catalogo.find({
+  Año_Lanzamiento: {$gt: 2015}
+})
+```
+- Seleccionar pais
+
+```python
+db.Catalogo.find(
+  {País: "Colombia"}
+)
+```
+- Seleccionar tipo y clasificación
+
+```python
+db.Catalogo.find({
+  Tipo: "TV Show", Clasificación: "TV-MA"
+})
+```
+
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas con el método find() para filtrar las peliculas y series según su año de lanzamiento, pais, tipo y clasificación. Estas consultas permiten conocer los documentos con codiciones especificas dentro del catálogo
+
+- Fitro año de lanzamiento
+
+Busca los documentos en donde el año de lanzamiento se mayor a 2015, utilizando el operador $gt que permite compara valores numéricos.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/20b02c98-2fda-4fb0-a34e-5aac9d91d852" /></p>
+
+- Fitro país
+
+Selecciona todos los documento en donde el pais es exactamente "Colombia"
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/d88131b1-dbbf-4f6d-96be-22c40021c53d" /></p>
+
+- Fitro tipo y clasificación
+
+Filtra los documentos donde el campo "Tipo" es igual a "TV Show" para obtener las series y su clasificación es "TV-MA".
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/abb2bf38-180c-42a0-9f81-0174d06798dd" /></p>
+
+## Consultas con operadores
+
+### _Código_ 
+
+Para este tipo de consultas se usan operadores como **$in** que busca valores dentro de una lista, **$regex** que busca documentos cuyo campo cumpla con un patrón de texto, **$lte** que selecciona documentos con valores menores o iguales a un límite, **$ne** que selecciona documentos con valores diferentes a un específico, **$or** permite combinar varias condiciones.
+
+- País Estados unidos o India - **operador $or**
+
+```python
+db.Catalogo.find({
+  $or: [{País: "United States"}, {País: "India"}]
+})
+```
+- Títulos que tengan la palabra "Love" - **operador $regex**
+
+```python
+db.Catalogo.find({
+  Título: {$regex: /Love/i }
+})
+```
+- Año de lanzamiento menor o igual a 2010 - **operador $lte**
+
+```python
+db.Catalogo.find({
+  Año_Lanzamiento: {$lte:2010}
+})
+```
+
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas utilizando los operadores $or, $regex y $lte, para mostrar documentos que sean de dos paises, que contengan un texto específico y que sean igual o menor que una condición. Estas consultas permiten extraer información especifica del catalogo de acuerdo con diferentes condiciones de búsqueda.
+
+- País Estados unidos o India - **operador $or**
+
+Muestran los documentos que su país es Estados unidos o India, utilizando el operado $or.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/9afe55ca-eca4-4768-8313-aed8cb898698" /><p>
+
+- Títulos que tengan la palabra "Love" - **operador $regex**
+
+Muestra las peliculas que en su titulo tiene la palabra "Love" al final de $regex se i para ignorar si son mayúsculas o mínusculas.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/75ed6e80-983b-4e6f-b25d-b166e095b116" /></p>
+
+- Año de lanzamiento menor o igual a 2010 - **operador $lte**
+
+Muestra los documentos donde el año de lanzamiento es 2010 o el año es menor, utilizando el operados $lte.
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/0cdac488-698c-43bc-9438-8da20ab9b13d" /></p>
