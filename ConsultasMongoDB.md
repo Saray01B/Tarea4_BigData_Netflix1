@@ -79,3 +79,45 @@ Se realizó la inserción de 4 documentos en la colección "Catalogo", utilizand
 <img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" />
 
 <img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" />
+
+## Selección
+
+### _Código_ 
+
+El comando find() permite consultar documentos dentro de una colección. Puede usarse para buscar documentos completos, aplicar filtros o devolver un campo en específico.
+
+- Seleccionar un documento por ID
+
+Busca un documento en donde el campo "ID" coincidad exactamente con "s10001". Este tipo de consulta se usa para un registro específico.
+
+```python
+db.Catalogo.find({
+  ID: "s10001"
+})
+```
+- Seleccionar solo títulos y años
+
+Selecciona todos los documento con {} y muestra el título, año de lanzamiento y excluye el _id.
+
+```python
+db.Catalogo.find(
+  {}, {Título:1, Año_Lanzamiento: 1, _id: 0}
+)
+```
+- Seleccionar películas
+
+Filtra los documentos donde el campo "Tipo" es igual a "Movie" para obtener las películas.
+
+```python
+db.Catalogo.find({
+  Tipo: "Movie"
+})
+```
+
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas con el método find(), selección por ID, con proyección y por tipo de contenido. Estas consultas permiten explorar la colección "Catalogo".
+
+<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/5b6667f2-2e0e-4727-87f0-00eb95f64513" />
+
+<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" />
