@@ -76,9 +76,9 @@ db.Catalogo.insertMany([
 
 Se realizó la inserción de 4 documentos en la colección "Catalogo", utilizando dos métodos distintos de consulta "InsertOne()" para agregar un registro específico y "InserMany()" para agregar varios registros en una operación, optimizando el proceso.
 
-<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" />
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" /></p>
 
-<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" />
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" /></p>
 
 ## Selección
 
@@ -118,6 +118,49 @@ db.Catalogo.find({
 
 Se realizaron tres tipos de consultas con el método find(), selección por ID, con proyección y por tipo de contenido. Estas consultas permiten explorar la colección "Catalogo".
 
-<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/5b6667f2-2e0e-4727-87f0-00eb95f64513" />
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/5b6667f2-2e0e-4727-87f0-00eb95f64513" /></p>
 
-<img width="962" height="494" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" />
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" /></p>
+
+## Actualización
+
+### _Código_ 
+
+El comando updateOne() permite modificar campos específicos de un documento usando el operador $set.
+
+- Actuarlizar país por ID
+
+Modificar el país del ID "S10001" a "Colombia"
+
+```python
+db.Catalogo.updateOne(
+  {ID: "s10001"},
+  {$set: {País: "Colombia"}}
+)
+```
+- Actualizar clasificación por título
+
+Se modifica la clasificación de las películas con título "Ejemplo 2"
+
+```python
+db.Catalogo.updateOne(
+  {"Título": "Ejemplo 2"},
+  {$set: {Clasificación: "TV-14"}}
+)
+```
+- Actualizar duración por Tipo
+
+Cambiar la duración de las películas de tipo "Movie" y duración "1 temporada"
+
+```python
+db.Catalogo.updateOne(
+  {"Tipo": "TV Show", "Duración": "1 temporada"},
+  {$set: {Duración: "100 min"}}
+)
+```
+
+### _MongoDB_ 
+
+Se realizaron loa actualización de 3 documentos, modificando el pais, la clasificación y la duración por diferentes filtros. Estas consultas permiten mantener la información del catalogo actualizada.
+
+<p align="center"><img wwidth="818" height="420" alt="image" src="https://github.com/user-attachments/assets/c5b9689f-986a-457a-887e-5c0f4c9f955e" /></p>
