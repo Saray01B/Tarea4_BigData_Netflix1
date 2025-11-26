@@ -419,10 +419,9 @@ db.Catalogo.aggregate([
   {$group: {_id: null, TotalDuración: {$sum: "$Duración_min"}}}
 ])
 ```
-
 ### _MongoDB_ 
 
-Se realizaron tres tipos de consultas para sumar la duración total de las películas en general, por país y por clasificación.Estas consultas permiten...
+Se realizaron tres tipos de consultas para sumar la duración total de las películas en general, por país y por clasificación.Estas consultas permiten analizar la duración acumulada de los contenidos del catálogo y detectar patrones según país o clasificación.
 
 - Sumar el total de la duración de las película
 
@@ -447,3 +446,59 @@ Suma los minuto de las películas clasificadas en TV-14
 **Resultado:** La duración total de las películas clasificadas en TV-14 es de 155305 minutos.Permite entender la proporción de este contenido para este público dentro del catálogo.
 
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/14aeac76-c7a5-4137-a224-a229cc670f4c" /></p>
+
+## Promedio
+
+### _Código_ 
+
+- Promedio de duración de todas las películas
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Tipo: "Movie"}},
+  {$group: {_id: null, DuraciónPromedio: {$avg: "$Duración_min"}}}
+])
+```
+- Promedio de duración por género
+
+```python
+db.Catalogo.aggregate([
+  {$group: {_id: "$Género", DuraciónPromedio: {$avg: "$Duración_min"}}},
+  {$sort: {DuraciónPromedio: -1}}
+])
+```
+- Promedio de duración de películas con clasificación "TV-14"
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Clasificación: "TV-14"}},
+  {$group: {_id: null, DuraciónPromedio:  {$avg: "$Duración_min"}}}
+])
+```
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas para obtener el promedio de la duración total de las películas en general, por génro y por clasificación.Estas consultas permiten identifcar los géneros con películas más largas y evaluar la duración según la clasificación.
+
+- Promedio de duración de todas las películas
+
+Tiempo promedo de todas las películas ofrecidas en el catálogo de Netflix.
+
+**Resultado:** La duración promedio de todas las películas es de 99.52 minutos. Proporciona el tiempo de visualización típico de una película en el catálogo.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/0ac6ca5b-5a46-4a1c-a9f3-1e3839708f43" /></p>
+
+- Promedio de duración por género
+
+Determina la duración promedio de las películas que se encuentran en los diferentes géneros
+
+**Resultado:** Los géneros con mayor promedio en la duración de las películas es "Classic Movies, Music & Musicals" con un promedio de 173 minutos y "Actión & Aventure, Cult Movies, Drama". Por lo que ayuda a entender la variación del contenido según el tipo de contenido.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/74ba636c-d2f7-4125-9037-23491f2ee46e" /></p>
+
+- Promedio de duración de películas con clasificación "TV-14"
+
+Muestra la duración promedio de las películas clasificadas en "TV-14"
+
+**Resultado:** La duración promedio las películas clasificadas en "TV-14" es de 110.45 minutos. Esto permite analizar la duración típica de las películas para este grupo de edad.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/5023ffce-9073-4b75-94d0-f988a1e96771" /></p>
