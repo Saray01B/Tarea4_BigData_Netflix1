@@ -252,7 +252,7 @@ db.Catalogo.find(
 
 ```python
 db.Catalogo.find({
-  Tipo: "TV Show", Clasificación: "TV-MA"
+  Tipo: "TV Show", Clasificación: "TV-14"
 })
 ```
 
@@ -274,9 +274,9 @@ Selecciona todos los documento en donde el pais es exactamente "Colombia"
 
 - Fitro tipo y clasificación
 
-Filtra los documentos donde el campo "Tipo" es igual a "TV Show" para obtener las series y su clasificación es "TV-MA".
+Filtra los documentos donde el campo "Tipo" es igual a "TV Show" para obtener las series y su clasificación es "TV-14".
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/abb2bf38-180c-42a0-9f81-0174d06798dd" /></p>
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/734b1c6d-2d36-4edc-bc6d-e9d4f23ce47e" /></p>
 
 ## Consultas con operadores
 
@@ -308,7 +308,7 @@ db.Catalogo.find({
 
 ### _MongoDB_ 
 
-Se realizaron tres tipos de consultas utilizando los operadores $or, $regex y $lte, para mostrar documentos que sean de dos paises, que contengan un texto específico y que sean igual o menor que una condición. Estas consultas permiten extraer información especifica del catalogo de acuerdo con diferentes condiciones de búsqueda.
+Se realizaron tres tipos de consultas utilizando los operadores $or, $regex y $lte, para mostrar documentos que sean de dos paises, que contengan un texto específico y que sean igual o menor que una condición. Estas consultas permiten extraer información especifica del catálogo de acuerdo con diferentes condiciones de búsqueda.
 
 - País Estados unidos o India - **operador $or**
 
@@ -325,4 +325,66 @@ Muestra las peliculas que en su titulo tiene la palabra "Love" al final de $rege
 - Año de lanzamiento menor o igual a 2010 - **operador $lte**
 
 Muestra los documentos donde el año de lanzamiento es 2010 o el año es menor, utilizando el operados $lte.
+
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/0cdac488-698c-43bc-9438-8da20ab9b13d" /></p>
+
+## 3️⃣Consultas de agregación para calcular estadísticas
+
+El comando aggregate() permite realizar consultas de agregación como contar, sumar, promediar y otras estadisticas sobre los documentos de la colección.
+
+## Contar
+
+### _Código_ 
+ 
+- Contar todas las películas
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Tipo: "Movie"}},
+  {$count: "TotalPelículas"}
+])
+```
+- Contar películas por país
+
+```python
+db.Catalogo.aggregate([
+  {$group: {_id: "$País", Total: {$sum: 1}}},
+  {$sort: {Total: -1}}
+])
+```
+- Contar series con clasificación "TV-14"
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Tipo: "TV Show", Clasificación: "TV-14"}},
+  {$count: "TotalSeriesTVMA"}
+])
+```
+
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas para contar documentos de la coleción Catálogo. Estas consultas permiten contar todas las películas, agruparlas por país y contar las series con clasificación TV-14.
+
+- Contar todas las películas
+
+Cuenta el número total de películas en el Catálogo. Se utiliza $match para filtrar los documentos tipo "Movie" y $count para devolver el total de coincidencias. 
+
+**Resultado:** El total de películas en la colección Catálogo es de 6025. Por lo que se puede realizar una comparación con la cantidad de series para tomar desiciones estrategicas.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/61d37cce-d2f3-4a09-806d-091261bf1804" /></p>
+
+- Contar películas por país
+
+Agrupa los documento por país y utiliza $sum: 1 para contar cuántas peliculas hay en cada uno. Utiliza "$" delante de País para indicar que es el valor tomado de cada documento.
+
+**Resultado:** Los 2 paises con más películas son Estados Unidos con 2784 y seguido de India con 968. Por lo que en el catálogo de Netflix la mayoría de películas son de Estados Unidos.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/ce4465dd-84c9-4019-b967-a1df82d46c44" /></p>
+
+- Contar series con clasificación "TV-14"
+
+Cuenta los documentos de tipo "TV Show" y con una clasificación "TV-14".
+
+**Resultado:** El total de películas con clasificación TV-14 son 733. Lo que reprensenta la cantidad de contenido que esta orientado a adolescentes en el catálogo.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/e092cf04-94d0-4123-85f9-7b48820a553a" /></p>
