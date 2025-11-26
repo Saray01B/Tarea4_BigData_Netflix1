@@ -388,3 +388,62 @@ Cuenta los documentos de tipo "TV Show" y con una clasificación "TV-14".
 **Resultado:** El total de películas con clasificación TV-14 son 733. Lo que reprensenta la cantidad de contenido que esta orientado a adolescentes en el catálogo.
 
 <p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/e092cf04-94d0-4123-85f9-7b48820a553a" /></p>
+
+## Sumar
+
+### _Código_ 
+
+- Sumar el total de la duración de las películas
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Tipo: "Movie"}},
+  {$group: {_id: null, TotalDuración: {$sum: "$Duración_min"}}}
+])
+```
+
+- Suma de la duración de las películas por país
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Tipo: "Movie"}},
+  {$group: {_id: "$País", TotalDuración: {$sum: "$Duración_min"}}},
+  {$sort: {TotalDuración: -1}}
+])
+```
+- Suma de la duración de las películas por clasificación TV-14
+
+```python
+db.Catalogo.aggregate([
+  {$match: {Clasificación: "TV-14"}},
+  {$group: {_id: null, TotalDuración: {$sum: "$Duración_min"}}}
+])
+```
+
+### _MongoDB_ 
+
+Se realizaron tres tipos de consultas para sumar la duración total de las películas en general, por país y por clasificación.Estas consultas permiten...
+
+- Sumar el total de la duración de las película
+
+Suma los minutos de todas las películas del catálogo par determinar la duración total de las películas.
+
+**Resultado:** La duración total es de 599637 minutos. Esto permite conocer la cantidad total de contenido en minutos que ofrece el catálog.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/437f9186-67df-4291-aa24-5727536d288e" /></p>
+
+- Suma de la duración de las películas por país
+
+Suma los minutos de las películas de acuerdo con el país de origen.
+
+**Resultado:** Los países con mayor duración duración son Estados Unidos e India, dado que son los paises que tienen más cantidad de películas en el catálogo.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/2b1b257d-a58a-46b3-84fb-d72a27dd3482" /></p>
+
+- Suma de la duración de las películas por clasificación TV-14
+
+Suma los minuto de las películas clasificadas en TV-14
+
+**Resultado:** La duración total de las películas clasificadas en TV-14 es de 155305 minutos.Permite entender la proporción de este contenido para este público dentro del catálogo.
+
+<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/14aeac76-c7a5-4137-a224-a229cc670f4c" /></p>
