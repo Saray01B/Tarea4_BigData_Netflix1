@@ -80,13 +80,13 @@ Se realizó la inserción de 4 documentos en la colección "Catalogo", utilizand
 
 InsertOne() permite insentar un documentos individual en la colección. Se usa cuando se quiere agregar solo un nuevo registro al catalogo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/f70c32b1-5687-4275-8e3f-5e4e603fd81b" /></p>
 
 - InserMany()
 
 InsertMany() permite insertar múltiples documentos en una sola operación. Es util cuando se quiren agregar varios registros al mismo tiempo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/487adeba-c1c2-4b91-a133-a31034ad6bfd" /></p>
 
 ## Selección
 
@@ -124,19 +124,19 @@ Se realizaron tres tipos de consultas con el método find(), selección por ID, 
 
 Busca un documento en donde el campo "ID" coincidad exactamente con "s10001". Este tipo de consulta se usa para un registro específico.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/87c0c8db-9fa5-4f80-8823-fd1bee1def4a" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/87c0c8db-9fa5-4f80-8823-fd1bee1def4a" /></p>
 
 - Documentos solo títulos y años
 
 Selecciona todos los documento con {} y muestra el título, año de lanzamiento y excluye el _id.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/9685c1ab-128f-4835-a44f-f6951067966f" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/9685c1ab-128f-4835-a44f-f6951067966f" /></p>
 
 - Documentos por tipo
 
 Filtra los documentos donde el campo "Tipo" es igual a "Movie" para obtener las películas.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/91f7be91-27dc-44e0-9066-0fe7ce509522" /></p>
 
 ## Actualización
 
@@ -177,19 +177,19 @@ Se realizó la actualización de 3 documentos, modificando el pais, la clasifica
 
 Modificar el país del ID "S10001" a "Colombia"
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/8118305b-253f-4afc-89f2-eaa97769ee7f" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/8118305b-253f-4afc-89f2-eaa97769ee7f" /></p>
   
 - Actualizar clasificación por título
 
 Se modifica la clasificación de las películas con título "Ejemplo 2" a "TV-14"
 
-<p align="center"><img width="818" height= "420" alt="image" src="https://github.com/user-attachments/assets/154bd822-1867-419d-8d68-2c134e0352ad" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/154bd822-1867-419d-8d68-2c134e0352ad" /></p>
   
 - Actualizar duración por Tipo
 
 Cambiar la duración de las películas de tipo "Movie" y duración de "90 min" a una duración de "100 min"
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/da6c238d-4429-4fe6-a389-e38a1c560fcc" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/da6c238d-4429-4fe6-a389-e38a1c560fcc" /></p>
 
 
 ## Eliminación
@@ -218,13 +218,13 @@ Se realizó la eliminación de documentos por ID y por duración. Estas consulta
 
 Permite eliminar un documentos individual en la colección. Se usa cuando se quiere borrar solo un nuevo registro al catalogo, si hay varios solo se elimina el primer documento. Se elimina el documento con IDE "S10001"
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/50d6cbfe-61a3-4213-af41-00f6fd61890f" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/50d6cbfe-61a3-4213-af41-00f6fd61890f" /></p>
 
 - deleteMany()
 
 Permite eliminar múltiples documentos en una sola operación  que cumplen con una condición. Es util cuando se quieren borrar varios registros al mismo tiempo. Se eliminan todas las películas con duración de 100 min que fueron un total de 109 películas
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/974a171b-0161-44ac-b252-38c8a7c0f688" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/974a171b-0161-44ac-b252-38c8a7c0f688" /></p>
 
 ## 2️⃣ Consultas con filtros y operadores
 
@@ -264,19 +264,19 @@ Se realizaron tres tipos de consultas con el método find() para filtrar las pel
 
 Busca los documentos en donde el año de lanzamiento se mayor a 2015, utilizando el operador $gt que permite compara valores numéricos.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/20b02c98-2fda-4fb0-a34e-5aac9d91d852" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/20b02c98-2fda-4fb0-a34e-5aac9d91d852" /></p>
 
 - Fitro país
 
 Selecciona todos los documento en donde el pais es exactamente "Colombia"
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/d88131b1-dbbf-4f6d-96be-22c40021c53d" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/d88131b1-dbbf-4f6d-96be-22c40021c53d" /></p>
 
 - Fitro tipo y clasificación
 
 Filtra los documentos donde el campo "Tipo" es igual a "TV Show" para obtener las series y su clasificación es "TV-14".
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/734b1c6d-2d36-4edc-bc6d-e9d4f23ce47e" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/734b1c6d-2d36-4edc-bc6d-e9d4f23ce47e" /></p>
 
 ## Consultas con operadores
 
@@ -314,19 +314,19 @@ Se realizaron tres tipos de consultas utilizando los operadores $or, $regex y $l
 
 Muestran los documentos que su país es Estados unidos o India, utilizando el operado $or.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/9afe55ca-eca4-4768-8313-aed8cb898698" /><p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/9afe55ca-eca4-4768-8313-aed8cb898698" /><p>
 
 - Títulos que tengan la palabra "Love" - **operador $regex**
 
 Muestra las peliculas que en su titulo tiene la palabra "Love" al final de $regex se i para ignorar si son mayúsculas o mínusculas.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/75ed6e80-983b-4e6f-b25d-b166e095b116" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/75ed6e80-983b-4e6f-b25d-b166e095b116" /></p>
 
 - Año de lanzamiento menor o igual a 2010 - **operador $lte**
 
 Muestra los documentos donde el año de lanzamiento es 2010 o el año es menor, utilizando el operados $lte.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/0cdac488-698c-43bc-9438-8da20ab9b13d" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/0cdac488-698c-43bc-9438-8da20ab9b13d" /></p>
 
 ## 3️⃣Consultas de agregación para calcular estadísticas
 
@@ -371,7 +371,7 @@ Cuenta el número total de películas en el Catálogo. Se utiliza $match para fi
 
 **Resultado:** El total de películas en la colección Catálogo es de 6025. Por lo que se puede realizar una comparación con la cantidad de series para tomar desiciones estrategicas.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/61d37cce-d2f3-4a09-806d-091261bf1804" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/61d37cce-d2f3-4a09-806d-091261bf1804" /></p>
 
 - Contar películas por país
 
@@ -379,7 +379,7 @@ Agrupa los documento por país y utiliza $sum: 1 para contar cuántas peliculas 
 
 **Resultado:** Los 2 paises con más películas son Estados Unidos con 2784 y seguido de India con 968. Por lo que en el catálogo de Netflix la mayoría de películas son de Estados Unidos.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/ce4465dd-84c9-4019-b967-a1df82d46c44" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/ce4465dd-84c9-4019-b967-a1df82d46c44" /></p>
 
 - Contar series con clasificación "TV-14"
 
@@ -387,7 +387,7 @@ Cuenta los documentos de tipo "TV Show" y con una clasificación "TV-14".
 
 **Resultado:** El total de películas con clasificación TV-14 son 733. Lo que reprensenta la cantidad de contenido que esta orientado a adolescentes en el catálogo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/e092cf04-94d0-4123-85f9-7b48820a553a" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/e092cf04-94d0-4123-85f9-7b48820a553a" /></p>
 
 ## Sumar
 
@@ -429,7 +429,7 @@ Suma los minutos de todas las películas del catálogo par determinar la duraci�
 
 **Resultado:** La duración total es de 599637 minutos. Esto permite conocer la cantidad total de contenido en minutos que ofrece el catálog.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/437f9186-67df-4291-aa24-5727536d288e" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/437f9186-67df-4291-aa24-5727536d288e" /></p>
 
 - Suma de la duración de las películas por país
 
@@ -437,7 +437,7 @@ Suma los minutos de las películas de acuerdo con el país de origen.
 
 **Resultado:** Los países con mayor duración duración son Estados Unidos e India, dado que son los paises que tienen más cantidad de películas en el catálogo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/2b1b257d-a58a-46b3-84fb-d72a27dd3482" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/2b1b257d-a58a-46b3-84fb-d72a27dd3482" /></p>
 
 - Suma de la duración de las películas por clasificación TV-14
 
@@ -445,7 +445,7 @@ Suma los minuto de las películas clasificadas en TV-14
 
 **Resultado:** La duración total de las películas clasificadas en TV-14 es de 155305 minutos.Permite entender la proporción de este contenido para este público dentro del catálogo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/14aeac76-c7a5-4137-a224-a229cc670f4c" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/14aeac76-c7a5-4137-a224-a229cc670f4c" /></p>
 
 ## Promedio
 
@@ -485,7 +485,7 @@ Tiempo promedo de todas las películas ofrecidas en el catálogo de Netflix.
 
 **Resultado:** La duración promedio de todas las películas es de 99.52 minutos. Proporciona el tiempo de visualización típico de una película en el catálogo.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/0ac6ca5b-5a46-4a1c-a9f3-1e3839708f43" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/0ac6ca5b-5a46-4a1c-a9f3-1e3839708f43" /></p>
 
 - Promedio de duración por género
 
@@ -493,7 +493,7 @@ Determina la duración promedio de las películas que se encuentran en los difer
 
 **Resultado:** Los géneros con mayor promedio en la duración de las películas es "Classic Movies, Music & Musicals" con un promedio de 173 minutos y "Actión & Aventure, Cult Movies, Drama". Por lo que ayuda a entender la variación del contenido según el tipo de contenido.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/74ba636c-d2f7-4125-9037-23491f2ee46e" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/74ba636c-d2f7-4125-9037-23491f2ee46e" /></p>
 
 - Promedio de duración de películas con clasificación "TV-14"
 
@@ -501,4 +501,4 @@ Muestra la duración promedio de las películas clasificadas en "TV-14"
 
 **Resultado:** La duración promedio las películas clasificadas en "TV-14" es de 110.45 minutos. Esto permite analizar la duración típica de las películas para este grupo de edad.
 
-<p align="center"><img width="818" height="420" alt="image" src="https://github.com/user-attachments/assets/5023ffce-9073-4b75-94d0-f988a1e96771" /></p>
+<p align="center"><img width="654" height="336" alt="image" src="https://github.com/user-attachments/assets/5023ffce-9073-4b75-94d0-f988a1e96771" /></p>
